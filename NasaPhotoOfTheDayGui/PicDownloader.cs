@@ -1,10 +1,9 @@
 ﻿/*
- * Nasa APOD Background Changer
+ * PicDownloader.cs
  * 
  * Jared Healy, All rights reserved (c) 2022
  * 
- * A small program which changes the background of the computer to 
- * Nasa's Astronomy photo of the day.
+ * Responsible for the logic of downloading the image and setting it as the background using Wallpaper.cs.
  * 
  * 9/02/2022; Commented through all code
  * 
@@ -41,11 +40,6 @@ namespace Nasa
             }
         }
 
-        internal static async void EventReciever(object? sender, EventArgs e)
-        {
-            await SetTodaysPhoto();
-        }
-
         /**
          * <summary>Fetches the current astronomy picture of the day link using NASA's Api, returning the link as a string</summary>
          * <returns>Url to image as a string</returns>
@@ -66,7 +60,7 @@ namespace Nasa
 
         /**
          * <summary>Takes and image from a url and returns it as a byte array</summary>
-         * <param name="url">the url to the image to get as bytes</param>
+         * <param name="url"> the url to the image to get as bytes</param>
          * <returns>The bytes from the image located at the url as byte array</returns>
          */
         private static async Task<byte[]> DownloadPhoto(string url)
